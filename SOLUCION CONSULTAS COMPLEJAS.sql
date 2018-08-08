@@ -62,7 +62,7 @@ Realice las siguientes consultas, debajo de cada uno escriba la sintaxis seguido
 -- 30. Nombre de los ciclistas que han ganado la etapa que comienza en Zamora. 
 	SELECT ciclista.nombre, etapa.salida from ciclista inner join etapa on ciclista.dorsal=etapa.dorsal and etapa.salida='Zamora';
 -- 31. Obtén el nombre y la categoría de los puertos ganados por ciclistas del equipo ‘Banesto’. 
-	SELECT puerto.nompuerto, puerto.categoria, ciclista.nombre, ciclista.nomeq	from ciclista innerjoin puerto on ciclista.dorsal=puerto.dorsal and ciclista.nomeq='Banesto';
+	SELECT puerto.nompuerto, puerto.categoria, ciclista.nombre, ciclista.nomeq	from ciclista inner join puerto on ciclista.dorsal=puerto.dorsal and ciclista.nomeq='Banesto';
 -- 32. Obtener el nombre de cada puerto indicando el número (netapa) y los kilómetros de la etapa en la que se encuentra el puerto. 
 	SELECT puerto.nompuerto, puerto.netapa, etapa.km FROM puerto inner join etapa on etapa.netapa=puerto.netapa group by puerto.nompuerto;
 -- 33. Obtener el nombre de los ciclistas con el color de cada maillot que hayan llevado. 
@@ -70,14 +70,23 @@ Realice las siguientes consultas, debajo de cada uno escriba la sintaxis seguido
 -- 34. Obtener pares de nombre de ciclista y número de etapa tal que ese ciclista haya ganado esa etapa habiendo llevado el maillot de color amarillo al menos una vez. 
 	SELECT CICLISTA.NOMBRE, etapa.netapa from ciclista INNER JOIN etapa on ciclista.dorsal=etapa.dorsal where exists (select llevar.dorsal from llevar inner join maillot on maillot.codigo=llevar.codigomail and maillot.color='Amarillo');
 -- 35. Obtener el valor del atributo netapa de las etapas que no comienzan en la misma ciudad en que acabó la anterior etapa. 
-	SELECT g1.netapa, g1.salida, g1.llegada FROM etapa g1 INNER JOIN etapa g2 ON g2.netapa = g1.netapa - 1 WHERE not g1.salida=g2.llegada;
+	SELECT g1.netapa, g1.salida, g1.llegada FROM etapa g1 inner JOIN etapa g2 ON g2.netapa = g1.netapa - 1 WHERE not g1.salida=g2.llegada;
 -- 36. Obtener el valor del atributo netapa y la ciudad de salida de aquellas etapas que no tengan puertos de montaña. 
--- 37. Obtener la edad media de los ciclistas que han ganado alguna etapa. 
+	select etapa.netapa, etapa.salida from etapa where etapa.netapa not in (select distinct puerto.netapa from puerto);
+-- 37. Obtener la edad media de los ciclistas que han ganado alguna etapa.
+	select avg(ciclista.edad) from ciclista where ciclista.dorsal in (select distinct etapa.dorsal from etapa);
 -- 38. Selecciona el nombre de los puertos con una altura superior a la altura media de todos los puertos. 
--- 39. Obtener el nombre de la ciudad de salida y de llegada de las etapas donde estén los puertos con mayor pendiente. --  40. Obtener el dorsal y el nombre de los ciclistas que han ganado los puertos de mayor altura. 
+	select puerto.nompuerto, puerto.altura, (select avg(puerto.altura) from puerto) as MediaAltura from puerto where puerto.altura>(select avg(puerto.altura) from puerto);
+-- 39. Obtener el nombre de la ciudad de salida y de llegada de las etapas donde estén los puertos con mayor pendiente. 
+	select etapa.netapa, etapa.salida, etapa.llegada from etapa where etapa.netapa in (select puerto.netapa from puerto where pendiente > (select avg(pendiente) from puerto));
+-- 40. Obtener el dorsal y el nombre de los ciclistas que han ganado los puertos de mayor altura. 
+	SELECT ciclista.dorsal, ciclista.nombre from ciclista where ciclista.dorsal in (select puerto.dorsal from puerto where puerto.altura>(select avg(puerto.altura) from puerto));
 -- 41. Obtener el nombre del ciclista más joven que ha ganado al menos una etapa. 
+	select ciclista.nombre from ciclista where ciclista.edad in (select min(ciclista.edad) from ciclista where ciclista.dorsal in (select distinct etapa.dorsal from etapa)) and ciclista.dorsal in (select etapa.dorsal from etapa);
 -- 42. Obtener el valor del atributo netapa de aquellas etapas tales que todos los puertos que están en ellas tienen más de 700 metros de altura. 
+	select distinct puerto.netapa from puerto where puerto.altura in( select min(puerto.altura) from puerto where puerto.altura>700 group by puerto.netapa);
 -- 43. Obtener el nombre y el director de los equipos tales que todos sus ciclistas son mayores de 20 años. 
+	select 
 -- 44. Obtener el dorsal y el nombre de los ciclistas tales que todas las etapas que han ganado tienen más de 170 km (es decir que sólo han ganado etapas de más de 170 km). 
 -- 45. Obtener el nombre de los ciclistas que han ganado todos los puertos de una etapa y además han ganado esa misma etapa. 
 -- 46. Obtener el nombre de los equipos tales que todos sus corredores han llevado algún maillot o han ganado algún puerto. 
