@@ -86,9 +86,11 @@ Realice las siguientes consultas, debajo de cada uno escriba la sintaxis seguido
 -- 42. Obtener el valor del atributo netapa de aquellas etapas tales que todos los puertos que están en ellas tienen más de 700 metros de altura. 
 	select distinct puerto.netapa from puerto where puerto.altura in( select min(puerto.altura) from puerto where puerto.altura>700 group by puerto.netapa);
 -- 43. Obtener el nombre y el director de los equipos tales que todos sus ciclistas son mayores de 20 años. 
-	select 
+	select equipo.nomeq, equipo.director from equipo where equipo.nomeq not in ( SELECT ciclista.nomeq FROM ciclista where ciclista.edad<20 group by nomeq order by edad asc);
 -- 44. Obtener el dorsal y el nombre de los ciclistas tales que todas las etapas que han ganado tienen más de 170 km (es decir que sólo han ganado etapas de más de 170 km). 
+	select ciclista.dorsal from ciclista where ciclista.dorsal not in (SELECT etapa.dorsal FROM [etapa] where etapa.km<170) and ciclista.dorsal in (SELECT etapa.dorsal FROM [etapa]);
 -- 45. Obtener el nombre de los ciclistas que han ganado todos los puertos de una etapa y además han ganado esa misma etapa. 
+		
 -- 46. Obtener el nombre de los equipos tales que todos sus corredores han llevado algún maillot o han ganado algún puerto. 
 -- 47. Obtener el código y el color de aquellos maillots que sólo han sido llevados por ciclistas de un mismo equipo. 
 -- 48. Obtener el nombre de aquellos equipos tal que sus ciclistas sólo hayan ganado puertos de 1ª categoría. 
