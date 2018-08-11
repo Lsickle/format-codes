@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <title>perueba 1</title>
+     </head>
+     <body>
+          numero 1<input type="number" name="numero 1" id="num1"><br><br>
+          numero 2<input type="number" name="numero 2" id="num2"><br><br>
+          numero 3<input type="number" name="numero 3" id="num3"><br><br>
+          numero 4<input type="number" name="numero 4" id="num4"><br><br>
+          numero 5<input type="number" name="numero 5" id="num5"><br><br>
+          numero 6<input type="number" name="numero 6" id="num6"><br><br>
+          numero 7<input type="number" name="numero 7" id="num7"><br><br>
+          numero 8<input type="number" name="numero 8" id="num8"><br><br>
+          numero 9<input type="number" name="numero 9" id="num9"><br><br>
+          numero 10<input type="number" name="numero 10" id="num10"><br><br>
+          <button onclick="editRow();">Edit Row</button><br><br>
+          <table id="table" border="1">
+
+             <tr style="background-color: #ddd">
+                  <th>suma</th>
+                  <th>resta</th>
+                  <th>multiplicacion</th>
+                  <th>divicion</th>
+             </tr>
+
+             <tr>
+                  <td>FN1</td>
+                  <td>LN1</td>
+                  <td>10</td>
+                  <td>20</td>
+             </tr>
+          </table>
+          <p id="compoprueba">prueba</p>
+          <script>
+
+          var  arreglonumero = new Array();
+          arreglonumero.push(parseInt(document.getElementById("num1").value));
+          arreglonumero.push(parseInt(document.getElementById("num2").value));
+          arreglonumero.push(parseInt(document.getElementById("num3").value));
+          arreglonumero.push(parseInt(document.getElementById("num4").value));
+          arreglonumero.push(parseInt(document.getElementById("num5").value));
+          arreglonumero.push(parseInt(document.getElementById("num6").value));
+          arreglonumero.push(parseInt(document.getElementById("num7").value));
+          arreglonumero.push(parseInt(document.getElementById("num8").value));
+          arreglonumero.push(parseInt(document.getElementById("num9").value));
+          arreglonumero.push(parseInt(document.getElementById("num10").value));
+          var suma=0;
+          var resta=0;
+          var multiplicacion=1;
+          var divicion=1;
+          for (var i = 0; i < arreglonumero.length; i++) {
+
+               suma=suma+arreglonumero[i];
+               resta=resta-arreglonumero[i];
+               multiplicacion=multiplicacion*arreglonumero[i];
+               divicion=divicion/arreglonumero[i];
+          }
+          document.write(suma + "<br/>")
+          document.write(resta + "<br/>")
+          document.write(multiplicacion + "<br/>")
+          document.write(divicion + "<br/>")
+       </script>
+     </body>
+</html>

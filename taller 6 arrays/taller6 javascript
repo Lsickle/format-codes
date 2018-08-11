@@ -1,0 +1,7 @@
+function operacion() {
+     var t = document.getElementById("numeros"),
+         d = t.getElementsByTagName("tr")[1],
+         r = d.getElementsByTagName("td")[9];
+
+document.getElementById("test").innerHTML = t[1][9];
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <title>taller arreglos</title>
+          <link rel="stylesheet" type="text/css" href="taller6 css.css">
+     </head>
+     <body>
+          <h1>ejercicio 1</h1>
+          <p>1. Realicen en Javascript un algoritmo que lea 10 números por teclado, los almacene en un arreglo y muestre la suma, resta, multiplicación y división de todos.</p>
+          <table id="numeros">
+               <tr>
+                    <td>numero 1</td>
+                    <td>numero 2</td>
+                    <td>numero 3</td>
+                    <td>numero 4</td>
+                    <td>numero 5</td>
+                    <td>numero 6</td>
+                    <td>numero 7</td>
+                    <td>numero 8</td>
+                    <td>numero 9</td>
+                    <td>numero 10</td>
+               </tr>
+               <tr>
+                    <td id="num.1"><input type="number" name="n1" value="inserte numero"></td>
+                    <td id="num.2"><input type="number" name="n2" value="inserte numero"></td>
+                    <td id="num.3"><input type="number" name="n3" value="inserte numero"></td>
+                    <td id="num.4"><input type="number" name="n4" value="inserte numero"></td>
+                    <td id="num.5"><input type="number" name="n5" value="inserte numero"></td>
+                    <td id="num.6"><input type="number" name="n6" value="inserte numero"></td>
+                    <td id="num.7"><input type="number" name="n7" value="inserte numero"></td>
+                    <td id="num.8"><input type="number" name="n8" value="inserte numero"></td>
+                    <td id="num.9"><input type="number" name="n9" value="inserte numero"></td>
+                    <td id="num.10"><input type="number" name="n10" value="inserte numero"></td>
+               </tr>
+          </table>
+          <h2>resultados</h2>
+          <table>
+               <tr>
+                    <td>suma</td>
+                    <td>resta</td>
+                    <td>multiplicación</td>
+                    <td>divicion</td>
+               </tr>
+               <tr>
+                    <td id="rsuma">resutado suma</td>
+                    <td id="rresta">resutado resta</td>
+                    <td id="rmultiplicación">resutado multiplicación</td>
+                    <td id="rdivicion">resutado divicion</td>
+               </tr>
+          </table>
+          <button id="calcular" type="submit" name="btncalcular" onclick="operacion()">calcular resultados</button>
+          <p id="test">prueba aca</p>
+          <script type="text/javascript" src="taler6 javascript.js"></script>
+     </body>
+</html>
