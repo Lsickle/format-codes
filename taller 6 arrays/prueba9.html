@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <title>prueba 9</title>
+     </head>
+     <body>
+          
+          
+          <script>
+
+     var  arreglonumero = new Array();
+     for (var i = 7; i < 100; i++) {
+          if (i%1==0 && i%i==0 && i%2!==0 && i%3!==0 && i%5!==0) {
+            arreglonumero.push(parseInt(i));
+        }
+       
+
+    }
+    for (var i = 1; i < 7; i++) {
+          if (i%1==0 && i%i==0  && i%2!==0) {
+            arreglonumero.push(parseInt(i));
+        }
+       
+
+    }
+          arreglonumero.sort(function(a, b){return b - a});
+          document.write(arreglonumero); 
+          
+       </script>
+     </body>
+</html>

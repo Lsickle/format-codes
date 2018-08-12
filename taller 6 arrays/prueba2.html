@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <title>prueba 2</title>
+     </head>
+     <body>
+          numero 1<input type="number" name="numero 1" id="num1"><br><br>
+          numero 2<input type="number" name="numero 2" id="num2"><br><br>
+          numero 3<input type="number" name="numero 3" id="num3"><br><br>
+          numero 4<input type="number" name="numero 4" id="num4"><br><br>
+          numero 5<input type="number" name="numero 5" id="num5"><br><br>
+          numero 6<input type="number" name="numero 6" id="num6"><br><br>
+          numero 7<input type="number" name="numero 7" id="num7"><br><br>
+          numero 8<input type="number" name="numero 8" id="num8"><br><br>
+          numero 9<input type="number" name="numero 9" id="num9"><br><br>
+          numero 10<input type="number" name="numero 10" id="num10"><br><br>
+          
+          
+          <p id="compoprueba">resultado</p>
+          <script>
+
+          var  arreglonumero = new Array();
+          arreglonumero.push(parseInt(document.getElementById("num1").value));
+          arreglonumero.push(parseInt(document.getElementById("num2").value));
+          arreglonumero.push(parseInt(document.getElementById("num3").value));
+          arreglonumero.push(parseInt(document.getElementById("num4").value));
+          arreglonumero.push(parseInt(document.getElementById("num5").value));
+          var  arreglonumero2 = new Array();
+          arreglonumero2.push(parseInt(document.getElementById("num6").value));
+          arreglonumero2.push(parseInt(document.getElementById("num7").value));
+          arreglonumero2.push(parseInt(document.getElementById("num8").value));
+          arreglonumero2.push(parseInt(document.getElementById("num9").value));
+          arreglonumero2.push(parseInt(document.getElementById("num10").value));
+          var  arreglototal = new Array();
+          for (var i = 0; i < 5; i++) {
+            arreglototal.push(arreglonumero[i]);
+            arreglototal.push(arreglonumero2[i]);
+          }
+          document.write(arreglototal + "<br/>");
+       </script>
+     </body>
+</html>
