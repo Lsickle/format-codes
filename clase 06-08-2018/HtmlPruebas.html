@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pruebas proyecto</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="pruebas.css">
+</head>
+<body>
+	<form>
+		cumpleaños
+		<input type="date" name="luis">
+	</form>
+
+	<form action="PhpPruebas.php" method="post">
+		<table border="1px">
+			<tr>
+				<td>Proyecto</td>
+				<td>Fase</td>
+				<td>Actividad</td>
+				<td>InicioP</td>
+				<td>InicioR</td>
+				<td>TerminoP</td>
+				<td>TerminoR</td>
+				<td>estado</td>
+			</tr>
+			<tr>
+				<td><input type="number" name="Proyecto"></td>
+				<td><input type="text" name="Fase"></td>
+				<td><input type="text" name="Actividad"></td>
+				<td><input type="date" name="InicioP"></td>
+				<td><input type="date" name="InicioR"></td>
+				<td><input type="date" name="TerminoP"></td>
+				<td><input type="date" name="TerminoR"></td>
+				<td><input type="text" name="estado"></td>
+				<td><input type="submit" name="enviar"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
